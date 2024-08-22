@@ -39,7 +39,7 @@ const Table: React.FC = () => {
   }, []);
 
   const handleEdit = (project: Project) => {
-    setEditProject(project);
+    setEditProject({ ...project }); // Ensure we copy the project
     setImagePreview(project.logo);
     setIsEditModalOpen(true);
   };
@@ -104,8 +104,8 @@ const Table: React.FC = () => {
           }
         );
 
-        setProjects(
-          projects.map((project) =>
+        setProjects((prevProjects) =>
+          prevProjects.map((project) =>
             project.id === editProject.id
               ? {
                   ...editProject,
@@ -237,13 +237,13 @@ const Table: React.FC = () => {
               alt={`${selectedProject.name} logo`}
             />
             <p className="text-gray-700 mb-4">{selectedProject.description}</p>
-            <p className="text-gray-700 mb-4">
+            <p className="text-gray-500 mb-4">
               Assigned Date: {selectedProject.assignedDate}
             </p>
-            <p className="text-gray-700 mb-4">
+            <p className="text-gray-500 mb-4">
               Due Date: {selectedProject.dueDate}
             </p>
-            <p className="text-gray-700 mb-4">
+            <p className="text-gray-500 mb-4">
               Status:{" "}
               <span className="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-green-100 text-green-800">
                 {selectedProject.status}
@@ -251,7 +251,7 @@ const Table: React.FC = () => {
             </p>
             <button
               onClick={closeModal}
-              className="px-4 py-2 bg-gray-500 text-white rounded-lg hover:bg-gray-600"
+              className="bg-gray-300 px-4 py-2 rounded-lg"
             >
               Close
             </button>
@@ -263,62 +263,142 @@ const Table: React.FC = () => {
         <div className="fixed inset-0 bg-gray-500 bg-opacity-75 flex justify-center items-center">
           <div className="bg-white p-6 rounded-lg shadow-lg max-w-lg w-full">
             <h2 className="text-xl font-semibold mb-4">Edit Project</h2>
-            {imagePreview && (
-              <img
-                src={imagePreview as string}
-                alt="Preview"
-                className="w-20 h-20 rounded-full mb-4"
-              />
-            )}
-            <input
-              type="file"
-              accept="image/*"
-              onChange={handleImageChange}
-              className="mb-4"
-            />
-            <input
-              type="text"
-              value={editProject.name}
-              onChange={(e) =>
-                setEditProject({ ...editProject, name: e.target.value })
-              }
-              className="w-full px-3 py-2 mb-4 border border-gray-300 rounded-md"
-            />
-            <textarea
-              value={editProject.description}
-              onChange={(e) =>
-                setEditProject({ ...editProject, description: e.target.value })
-              }
-              className="w-full px-3 py-2 mb-4 border border-gray-300 rounded-md"
-            />
-            <input
-              type="date"
-              value={editProject.assignedDate}
-              onChange={(e) =>
-                setEditProject({ ...editProject, assignedDate: e.target.value })
-              }
-              className="w-full px-3 py-2 mb-4 border border-gray-300 rounded-md"
-            />
-            <input
-              type="date"
-              value={editProject.dueDate}
-              onChange={(e) =>
-                setEditProject({ ...editProject, dueDate: e.target.value })
-              }
-              className="w-full px-3 py-2 mb-4 border border-gray-300 rounded-md"
-            />
-            <button
-              onClick={handleEditSubmit}
-              className="px-4 py-2 bg-blue-500 text-white rounded-lg hover:bg-blue-600 mr-2"
+            <form
+              onSubmit={(e) => {
+                e.preventDefault();
+                handleEditSubmit();
+              }}
             >
-              Save
-            </button>
-            <button
-              onClick={closeModal}
-              className="px-4 py-2 bg-gray-500 text-white rounded-lg hover:bg-gray-600"
-            >
-              Cancel
-            </button>
+              <div className="mb-4">
+                <label
+                  htmlFor="name"
+                  className="block text-sm font-medium text-gray-700"
+                >
+                  Project Name
+                </label>
+                <input
+                  type="text"
+                  id="name"
+                  value={editProject.name}
+                  onChange={(e) =>
+                    setEditProject({ ...editProject, name: e.target.value })
+                  }
+                  className="mt-1 block w-full border-gray-300 rounded-md shadow-sm"
+                />
+              </div>
+              <div className="mb-4">
+                <label
+                  htmlFor="description"
+                  className="block text-sm font-medium text-gray-700"
+                >
+                  Description
+                </label>
+                <textarea
+                  id="description"
+                  value={editProject.description}
+                  onChange={(e) =>
+                    setEditProject({
+                      ...editProject,
+                      description: e.target.value,
+                    })
+                  }
+                  className="mt-1 block w-full border-gray-300 rounded-md shadow-sm"
+                />
+              </div>
+              <div className="mb-4">
+                <label
+                  htmlFor="logo"
+                  className="block text-sm font-medium text-gray-700"
+                >
+                  Logo
+                </label>
+                <input
+                  type="file"
+                  id="logo"
+                  onChange={handleImageChange}
+                  className="mt-1 block w-full text-gray-500"
+                />
+                {imagePreview && (
+                  <img
+                    src={imagePreview as string}
+                    alt="Image preview"
+                    className="mt-2 w-20 h-20 object-cover"
+                  />
+                )}
+              </div>
+              <div className="mb-4">
+                <label
+                  htmlFor="assignedDate"
+                  className="block text-sm font-medium text-gray-700"
+                >
+                  Assigned Date
+                </label>
+                <input
+                  type="date"
+                  id="assignedDate"
+                  value={editProject.assignedDate}
+                  onChange={(e) =>
+                    setEditProject({
+                      ...editProject,
+                      assignedDate: e.target.value,
+                    })
+                  }
+                  className="mt-1 block w-full border-gray-300 rounded-md shadow-sm"
+                />
+              </div>
+              <div className="mb-4">
+                <label
+                  htmlFor="dueDate"
+                  className="block text-sm font-medium text-gray-700"
+                >
+                  Due Date
+                </label>
+                <input
+                  type="date"
+                  id="dueDate"
+                  value={editProject.dueDate}
+                  onChange={(e) =>
+                    setEditProject({
+                      ...editProject,
+                      dueDate: e.target.value,
+                    })
+                  }
+                  className="mt-1 block w-full border-gray-300 rounded-md shadow-sm"
+                />
+              </div>
+              <div className="mb-4">
+                <label
+                  htmlFor="status"
+                  className="block text-sm font-medium text-gray-700"
+                >
+                  Status
+                </label>
+                <input
+                  type="text"
+                  id="status"
+                  value={editProject.status}
+                  onChange={(e) =>
+                    setEditProject({ ...editProject, status: e.target.value })
+                  }
+                  className="mt-1 block w-full border-gray-300 rounded-md shadow-sm"
+                />
+              </div>
+              <div className="flex justify-end">
+                <button
+                  type="button"
+                  onClick={closeModal}
+                  className="bg-gray-300 px-4 py-2 rounded-lg mr-2"
+                >
+                  Cancel
+                </button>
+                <button
+                  type="submit"
+                  className="bg-blue-500 text-white px-4 py-2 rounded-lg"
+                >
+                  Save
+                </button>
+              </div>
+            </form>
           </div>
         </div>
       )}
