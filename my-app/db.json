@@ -1,38 +1,28 @@
 {
     "projects": [
         {
-            "logo": "https://spruko.com/demo/xintra/dist/assets/images/company-logos/1.png",
-            "name": "Development of Encard A...",
-            "description": "Regional Paradigm Technician",
-            "teamImage": "https://spruko.com/demo/xintra/dist/assets/images/faces/5.jpg",
-            "assignedDate": "15 June, 2024",
-            "dueDate": "20 August, 2024",
-            "status": "Pending",
-            "id": "28c8"
-        },
-        {
             "logo": "https://spruko.com/demo/xintra/dist/assets/images/company-logos/3.png",
             "name": "Development of Encard A...",
             "description": "Regional Paradigm Technician",
-            "teamImage": "https://spruko.com/demo/xintra/dist/assets/images/faces/5.jpg",
+            "teamImage": "https://spruko.com/demo/xintra/dist/assets/images/faces/11.jpg",
             "assignedDate": "15 June, 2024",
             "dueDate": "20 August, 2024",
             "status": "Deactive",
             "id": "1e0e"
         },
         {
-            "logo": "https://spruko.com/demo/xintra/dist/assets/images/company-logos/7.png",
-            "name": "Development of Encard A...",
+            "logo": "https://spruko.com/demo/xintra/dist/assets/images/company-logos/1.png",
+            "name": "Development of Encard B...",
             "description": "Regional Paradigm Technician",
-            "teamImage": "https://spruko.com/demo/xintra/dist/assets/images/faces/5.jpg",
+            "teamImage": "https://spruko.com/demo/xintra/dist/assets/images/faces/11.jpg",
             "assignedDate": "15 June, 2024",
             "dueDate": "20 August, 2024",
             "status": "Active",
             "id": "f445"
         },
         {
-            "logo": "https://spruko.com/demo/xintra/dist/assets/images/company-logos/8.png",
-            "name": "Development of Encard A...",
+            "logo": "https://spruko.com/demo/xintra/dist/assets/images/company-logos/7.png",
+            "name": "Development of Encard C...",
             "description": "Regional Paradigm Technician",
             "teamImage": "https://spruko.com/demo/xintra/dist/assets/images/faces/5.jpg",
             "assignedDate": "15 June, 2024",
@@ -42,7 +32,7 @@
         },
         {
             "logo": "https://spruko.com/demo/xintra/dist/assets/images/company-logos/1.png",
-            "name": "Development of Encard A...",
+            "name": "Development of Encard D...",
             "description": "Regional Paradigm Technician",
             "teamImage": "https://spruko.com/demo/xintra/dist/assets/images/faces/5.jpg",
             "assignedDate": "15 June, 2024",
@@ -52,33 +42,43 @@
         },
         {
             "logo": "https://spruko.com/demo/xintra/dist/assets/images/company-logos/1.png",
-            "name": "Development of Encard A...",
+            "name": "Development of Encard E...",
             "description": "Regional Paradigm Technician",
             "teamImage": "https://spruko.com/demo/xintra/dist/assets/images/faces/5.jpg",
             "assignedDate": "15 June, 2024",
             "dueDate": "20 August, 2024",
             "status": "Active",
-            "id": "e278"
+            "id": "e279"
         },
         {
             "logo": "https://spruko.com/demo/xintra/dist/assets/images/company-logos/1.png",
-            "name": "Development of Encard A...",
+            "name": "Development of Encard F...",
             "description": "Regional Paradigm Technician",
             "teamImage": "https://spruko.com/demo/xintra/dist/assets/images/faces/5.jpg",
             "assignedDate": "15 June, 2024",
             "dueDate": "20 August, 2024",
             "status": "Active",
-            "id": "e278"
+            "id": "e280"
         },
         {
             "logo": "https://spruko.com/demo/xintra/dist/assets/images/company-logos/1.png",
-            "name": "Development of Encard A...",
+            "name": "Development of Encard G...",
             "description": "Regional Paradigm Technician",
             "teamImage": "https://spruko.com/demo/xintra/dist/assets/images/faces/5.jpg",
             "assignedDate": "15 June, 2024",
             "dueDate": "20 August, 2024",
             "status": "Active",
-            "id": "e278"
+            "id": "e281"
+        },
+        {
+            "logo": "https://spruko.com/demo/xintra/dist/assets/images/company-logos/1.png",
+            "name": "Development of Encard H...",
+            "description": "Regional Paradigm Technician",
+            "teamImage": "https://spruko.com/demo/xintra/dist/assets/images/faces/5.jpg",
+            "assignedDate": "15 June, 2024",
+            "dueDate": "20 August, 2024",
+            "status": "Active",
+            "id": "e282"
         }
     ]
 }
